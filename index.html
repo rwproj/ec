@@ -2,31 +2,42 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/exercise-calculator/favicon.png" />
+		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="modulepreload" href="/exercise-calculator/_app/immutable/entry/start.DIONJhFK.js">
-		<link rel="modulepreload" href="/exercise-calculator/_app/immutable/chunks/entry.BWMues4O.js">
-		<link rel="modulepreload" href="/exercise-calculator/_app/immutable/chunks/scheduler.BvLojk_z.js">
-		<link rel="modulepreload" href="/exercise-calculator/_app/immutable/entry/app.CTcdZnlM.js">
-		<link rel="modulepreload" href="/exercise-calculator/_app/immutable/chunks/index.B45HxG3X.js">
+		<link href="./_app/immutable/assets/2.clu7evnf.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.DMtZgThV.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.C3zU48__.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BvLojk_z.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.DXyFTrjn.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.B45HxG3X.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.Dow57OxU.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.Dy4hm1-N.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">
+		<div style="display: contents">  <div class="app-container"><h1 data-svelte-h="svelte-t1ioyc">Exercise Calculator</h1> <div class="inputGroup"><label data-svelte-h="svelte-13rhvfr">W1 (kg):</label> <input type="text" value=""> <label data-svelte-h="svelte-1qrbw01">R1:</label> <input type="text" value=""> <div class="result"></div></div> <div class="inputGroup"><label data-svelte-h="svelte-1k8sxr0">Desired R2:</label> <input type="text" value=""> <div class="result"></div></div> <div class="inputGroup"><label data-svelte-h="svelte-1v6ur2">Desired W2 (kg):</label> <input type="text" value=""> <div class="result"></div></div> <div class="inputGroup"><label data-svelte-h="svelte-12zri36">Desired % of 1RM:</label> <input type="text" value=""> <div class="result"></div></div> <div class="inputGroup"><label data-svelte-h="svelte-1c5h2xe">Loaded Weight (kg):</label> <input type="text" value=""> <label data-svelte-h="svelte-1vpercp">Real Weight (kg):</label> <input type="text" value=""></div></div> 
+			
 			<script>
 				{
-					__sveltekit_3w3j6n = {
-						base: "/exercise-calculator",
+					__sveltekit_15dhjuh = {
+						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/exercise-calculator"
 					};
 
 					const element = document.currentScript.parentElement;
 
+					const data = [null,null];
+
 					Promise.all([
-						import("/exercise-calculator/_app/immutable/entry/start.DIONJhFK.js"),
-						import("/exercise-calculator/_app/immutable/entry/app.CTcdZnlM.js")
+						import("./_app/immutable/entry/start.DMtZgThV.js"),
+						import("./_app/immutable/entry/app.DXyFTrjn.js")
 					]).then(([kit, app]) => {
-						kit.start(app, element);
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
 					});
 				}
 			</script>
