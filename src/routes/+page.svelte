@@ -10,6 +10,7 @@
   let W2 = "";
   let R2 = "";
   let percentage = "";
+  let pRM = "";
 
   // Calculation Functions
   const calculateW2 = (W1, R1, R2) => {
@@ -46,12 +47,16 @@
     ? `R2: ${(calculateR2(parseFloat(W1), parseFloat(R1), parseFloat(W2))).toFixed(2)} reps`
     : "";
 
-  $: loadedToRealWeight = !isNaN(parseFloat(loadedWeight))
-    ? (0.4477 * parseFloat(loadedWeight) + 3.471).toFixed(2)
+  $: plateToRealWeight = !isNaN(parseFloat(loadedWeight))
+    ? (parseFloat(loadedWeight) / 2.23 + 7.75).toFixed(2)
     : "";
 
-  $: realToLoadedWeight = !isNaN(parseFloat(realWeight))
-    ? ((parseFloat(realWeight) - 3.471) / 0.4477).toFixed(2)
+  $: realToPlateWeight = !isNaN(parseFloat(realWeight))
+    ? (parseFloat(realWeight) * 2.23 - 7.75).toFixed(2)
+    : "";
+
+    $: rmW = !isNaN(parseFloat(W1)) && !isNaN(parseFloat(R1)) && !isNaN(parseFloat(pRM))
+    ? `: ${calculateW2ForPercentage(calculate1RM(W1, R1), pRM).toFixed(2)} kg`
     : "";
 
 </script>
@@ -78,9 +83,18 @@
   </div>
 
   <div class="inputGroup">
-    <label>Desired W2 (kg):</label>
+    <label>Desiredd W2 (kg):</label>
     <input type="text" bind:value={W2} />
     <div class="result">{calculatedR2}</div>
+  </div>
+
+  <div class="inputGroup">
+    <label>Desired % of 1RM:</label>
+    <input
+      type="text"
+      bind:value={pRM}
+    />
+    <div class="result">{rmW}</div>
   </div>
 
   <div class="inputGroup">
@@ -88,13 +102,13 @@
     <input
       type="text"
       bind:value={loadedWeight}
-      on:input={() => realWeight = loadedToRealWeight}
+      on:input={() => realWeight = plateToRealWeight}
     />
     <label>Real Weight (kg):</label>
     <input
       type="text"
       bind:value={realWeight}
-      on:input={() => loadedWeight = realToLoadedWeight}
+      on:input={() => loadedWeight = realToPlateWeight}
     />
   </div>
 </div>

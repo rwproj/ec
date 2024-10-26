@@ -1,14 +1,20 @@
 import adapter from '@sveltejs/adapter-static';
 
-export default {
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
   kit: {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: null
+      fallback: '404.html',
+      precompress: false,
+      strict: true
     }),
     paths: {
-      base: '/exercise-calculator'
+      // Replace "your-repo-name" with your actual repository name
+      base: process.env.NODE_ENV === 'production' ? '/ec' : ''
     }
   }
 };
+
+export default config;
