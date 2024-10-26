@@ -83,7 +83,7 @@
   </div>
 
   <div class="inputGroup">
-    <label>Desiredd W2 (kg):</label>
+    <label>Desired W2 (kg):</label>
     <input type="text" bind:value={W2} />
     <div class="result">{calculatedR2}</div>
   </div>
